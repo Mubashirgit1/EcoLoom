@@ -91,3 +91,11 @@ body {
         padding-top: 164px;
     }
 }
+@media (max-width: 991px) {
+    .header-container {
+        padding-top: 120px;
+    }
+    body{
+        height: calc(100vh - 120px);
+    }
+}
