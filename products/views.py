@@ -2,11 +2,12 @@ from django.shortcuts import render,get_object_or_404,redirect,reverse,HttpRespo
 from .models import Product,Category
 from django.contrib import messages
 from django.db.models import Q
+from django.db.models.functions import Lower
 
 # Create your views here.
 
 def all_products(request):
-    """"View function show all products including sorting queries."""
+    """View function show all products including sorting queries."""
     products = Product.objects.all()
     query = None
     categories = None
@@ -50,7 +51,7 @@ def all_products(request):
     return render(request, 'products/products.html',context)
 
 def product_detail(request, product_id):
-    """"View function show indivdual product detail."""
+    """View function show indivdual product detail."""
     product = get_object_or_404(Product, pk=product_id)
     context = {'product': product,}
     return render(request, 'products/product_detail.html',context)
