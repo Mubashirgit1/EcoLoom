@@ -1,0 +1,41 @@
+<script type="text/javascript">
+    // Disable +/- buttons outside 1-99 range
+    function EnableDisableQtyInput(item_id) {
+        var currentVal = parseInt($('#id_qty_' + item_id).val());
+        var minusDisabled = currentVal < 2;
+        var plusDisabled = currentVal > 98;
+        $(`#decrement-qty_${item_id}`).prop('disabled', minusDisabled);
+        $(`#increment-qty_${item_id}`).prop('disabled', plusDisabled);
+    }
+    //ensure correct initial state on page load
+    var allQtyInputs = $('.qty_input');
+    for (var i = 0; i < allQtyInputs.length; i++) {
+        var item_id = $(allQtyInputs[i]).data('item_id');
+        EnableDisableQtyInput(item_id);
+    }
+
+    $('.qty_input').change(function(){
+        var item_id = $(this).data('item_id');
+        EnableDisableQtyInput(item_id);
+    });
+
+    //increment qty buttons
+    $('.increment-qty').click(function(e){
+       e.preventDefault();
+       var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+       var currentVal = parseInt($(closestInput).val()); 
+       $(closestInput).val(currentVal + 1);
+       var item_id = $(closestInput).data('item_id');
+         EnableDisableQtyInput(item_id);
+    });
+    //decrement qty buttons
+    $('.decrement-qty').click(function(e){
+        e.preventDefault();
+        var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+        var currentVal = parseInt($(closestInput).val()); 
+        $(closestInput).val(currentVal - 1);
+        var item_id = $(closestInput).data('item_id');
+        EnableDisableQtyInput(item_id);
+    });
+
+</script>
