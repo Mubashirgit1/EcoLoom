@@ -91,7 +91,10 @@ a.category-badge >span.badge:hover {
     width: 42px;
     height: 42px;
 }
-.btt-link{
+.btt-link,
+.update-link,
+.remove-item
+{
     cursor: pointer;
 }
 /* -------------------------------- Media Queries */
