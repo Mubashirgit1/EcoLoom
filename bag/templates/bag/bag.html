@@ -141,6 +141,7 @@
     $('.remove-item').click(function(e){
         var csrf = '{{ csrf_token }}';
         var item_id = $(this).attr('id').split('remove_')[1];
+        console.log(item_id);
         var size = $(this).data('product_size');
         var url = `/bag/remove/${item_id}/`;
         var data = {
