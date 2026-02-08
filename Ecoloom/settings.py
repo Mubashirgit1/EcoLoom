@@ -22,6 +22,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-04ix#lrar32o1j^nyt)n+%5wv3d^!(l2m9$nu5a7%ret*_p_!5'
 
+if os.path.isfile('env.py'):
+    import env
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -186,3 +189,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 FREE_DELIVERY_THRESHOLD = 50
 STANDARD_DELIVERY_PERCENTAGE = 10
+STRIPE_CURRENCY = 'GBP'
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
