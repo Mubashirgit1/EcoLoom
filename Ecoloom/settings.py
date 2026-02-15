@@ -76,7 +76,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'Ecoloom/templates'),
+            os.path.join(BASE_DIR, 'templates'),
             os.path.join(BASE_DIR, 'allauth', 'templates'),
         ],
         'APP_DIRS': True,
@@ -159,8 +159,9 @@ ACCOUNT_RATE_LIMITS = {
 }
 
 LOGIN_REDIRECT_URL = "/"
-ACCOUNT_LOGOUT_REDIRECT_URL = "/success"
-
+ACCOUNT_LOGOUT_REDIRECT_URL = "/"
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
+ACCOUNT_USERNAME_MIN_LENGTH = 4
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
@@ -196,3 +197,4 @@ STRIPE_CURRENCY = 'GBP'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
+ 
