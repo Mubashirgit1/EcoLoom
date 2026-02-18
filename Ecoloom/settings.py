@@ -160,7 +160,14 @@ ACCOUNT_RATE_LIMITS = {
 
 LOGIN_REDIRECT_URL = "/"
 ACCOUNT_LOGOUT_REDIRECT_URL = "/"
-ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
+ACCOUNT_SIGNUP_FIELDS = [
+    'username*',
+    'email*',
+    'email2*',
+    'password1*',
+    'password2*',
+]
+
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 
 # Internationalization
@@ -197,4 +204,5 @@ STRIPE_CURRENCY = 'GBP'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
+DEFAULT_FROM_EMAIL = 'boutiqueado@example.com'
  
