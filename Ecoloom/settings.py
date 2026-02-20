@@ -31,7 +31,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    'ecoloom-3852349a54d4.herokuapp.com/',
+    'ecoloom-3852349a54d4.herokuapp.com',
 ]
 
 
