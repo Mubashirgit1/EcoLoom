@@ -213,7 +213,6 @@ if 'AWS_STORAGE_BUCKET_NAME' in os.environ:
     AWS_DEFAULT_ACL = None
     AWS_QUERYSTRING_AUTH = False
     AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com"
-    AWS_S3_CUSTOM_DOMAIN_MEDIA = f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/media/"
 
     STORAGES = {
         "default": {
@@ -223,9 +222,6 @@ if 'AWS_STORAGE_BUCKET_NAME' in os.environ:
             "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
         },
     }
-
-    STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/static/"
-    MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN_MEDIA}/"
 
 
 else:
