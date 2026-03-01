@@ -212,7 +212,7 @@ if 'AWS_STORAGE_BUCKET_NAME' in os.environ:
 
     AWS_DEFAULT_ACL = None
     AWS_QUERYSTRING_AUTH = False
-    AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com"
+    AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/media/"
 
     STORAGES = {
         "default": {
