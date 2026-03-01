@@ -227,6 +227,7 @@ if 'AWS_STORAGE_BUCKET_NAME' in os.environ:
     MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/media/"
 else:
     # local development
+    STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
     MEDIA_URL = '/media/'
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
