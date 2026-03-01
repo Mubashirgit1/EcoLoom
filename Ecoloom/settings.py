@@ -213,6 +213,7 @@ if 'AWS_STORAGE_BUCKET_NAME' in os.environ:
     AWS_DEFAULT_ACL = None
     AWS_QUERYSTRING_AUTH = False
     AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com"
+    AWS_S3_CUSTOM_DOMAIN_MEDIA = f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/media/"
 
     STORAGES = {
         "default": {
@@ -224,11 +225,9 @@ if 'AWS_STORAGE_BUCKET_NAME' in os.environ:
     }
 
     STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/static/"
-    MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/media/"
+    MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN_MEDIA}/"
 
-    # Ensure Django uses S3 for uploaded media and collected static files
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
 else:
     # local development
     STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
